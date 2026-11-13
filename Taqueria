@@ -8,21 +8,18 @@
 *{margin:0;box-sizing:border-box}
 body{background:#0F0F0F;font-family:'Segoe UI',sans-serif;color:#fff}
 .top{background:#FFD700;color:#111;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20}
-.top b{font-size:20px;letter-spacing:1px}
-.top small{font-size:10px;letter-spacing:2px}
+.top b{font-size:20px}
 .top .vivo{background:#111;color:#FFD700;padding:6px 10px;border-radius:100px;font-size:11px;font-weight:900}
 .hero{background:linear-gradient(180deg,#FFD700,#FFAA00);color:#111;padding:22px 16px;text-align:center;border-radius:0 0 28px 28px}
 .hero h1{font-size:32px;line-height:1.05}
-.hero h1 span{font-size:18px;display:block}
 .hero p{font-size:13px;margin:10px 0;font-weight:600}
 .hero .premio{background:#111;color:#FFD700;padding:12px 18px;border-radius:16px;display:inline-block;margin-top:6px}
 .hero .premio b{font-size:26px;display:block}
-.hero .premio span{font-size:12px}
 .countdown{display:flex;gap:8px;justify-content:center;margin-top:14px}
 .countdown div{background:#fff;color:#111;padding:10px 12px;border-radius:12px;text-align:center;min-width:60px}
 .countdown b{font-size:20px;display:block}
 .countdown span{font-size:10px;color:#777}
-.tabs{display:flex;background:#1c1c1c;border-bottom:1px solid #333;margin-top:12px;position:sticky;top:54px;z-index:10}
+.tabs{display:flex;background:#1c1c1c;border-bottom:1px solid #333;margin-top:12px}
 .tabs button{flex:1;padding:13px;border:none;background:transparent;font-weight:900;font-size:13px;cursor:pointer;color:#888}
 .tabs button.activo{color:#FFD700;border-bottom:3px solid #FFD700}
 .seccion{display:none;padding:14px}
@@ -37,223 +34,84 @@ body{background:#0F0F0F;font-family:'Segoe UI',sans-serif;color:#fff}
 .btn-negro{background:#000;color:#FFD700;border:1px solid #FFD700}
 .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}
 .numero{background:#222;border:1px solid #444;padding:14px 0;text-align:center;border-radius:12px;font-weight:900;cursor:pointer;font-size:14px}
-.numero.sel{background:#FFD700;color:#111;border-color:#FFD700;transform:scale(1.05)}
-.numero.vendido{background:#111;color:#555;border-color:#222;text-decoration:line-through;cursor:not-allowed;opacity:.5}
-.numero.mio{background:#25D366;color:#fff;border-color:#25D366}
+.numero.sel{background:#FFD700;color:#111}
+.numero.vendido{background:#111;color:#555;border-color:#222;text-decoration:line-through;opacity:.5}
 .filtros{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
 .filtros button{background:#222;color:#fff;border:1px solid #444;padding:8px 12px;border-radius:100px;cursor:pointer;font-size:12px}
 .filtros button.activo{background:#FFD700;color:#111}
 .progreso{height:14px;background:#333;border-radius:100px;overflow:hidden;margin-top:10px}
-.progreso div{height:100%;background:#FFD700;width:0%;transition:.5s}
+.progreso div{height:100%;background:#FFD700;width:0%}
 .premios{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px}
 .premio-card{background:#1c1c1c;padding:12px;border-radius:16px;text-align:center;border:1px solid #333}
-.premio-card b{font-size:13px}
-.premio-card p{font-size:11px;color:#aaa}
-.ganadores{margin-top:12px}
 .ganador{background:#1c1c1c;padding:12px;border-radius:14px;border:1px solid #333;margin-top:8px;display:flex;justify-content:space-between;align-items:center}
 .badge{padding:4px 8px;border-radius:100px;font-size:11px;font-weight:900}
-.oro{background:#FFD700;color:#111}
 .verde{background:#25D366;color:#fff}
-.gris{background:#333;color:#fff}
 footer{text-align:center;color:#666;font-size:12px;padding:16px;line-height:1.6}
-.float{position:fixed;bottom:18px;right:18px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;z-index:999;box-shadow:0 8px 20px rgba(0,0,0,.4)}
+.float{position:fixed;bottom:18px;right:18px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;z-index:999}
 </style>
 </head>
 <body>
-
-<div class="top"><div><b>🎟️ BONOS <span style="color:#FF6B00">HUATABAMPO</span></b><br><small>RIFAS 100% LEGALES • HUATABAMPO</small></div><div class="vivo">● EN VIVO</div></div>
-
+<div class="top"><div><b>🎟️ BONOS HUATABAMPO</b><br><small style="font-size:10px">RIFAS • HUATABAMPO</small></div><div class="vivo">● EN VIVO</div></div>
 <div class="hero">
-  <h1>RIFA $10,000<br><span>EN EFECTIVO • HUATABAMPO</span></h1>
-  <p>Con tu bono participas por el premio mayor y 3 premios más. Sorteo con Lotería Nacional.</p>
-  <div class="premio"><span>🏆 PREMIO MAYOR</span><b>$10,000 MXN</b><span>En efectivo • Se entrega el mismo día</span></div>
-  <div class="countdown">
-    <div><b id="cd-d">12</b><span>DÍAS</span></div>
-    <div><b id="cd-h">08</b><span>HORAS</span></div>
-    <div><b id="cd-m">45</b><span>MIN</span></div>
-    <div><b id="cd-s">30</b><span>SEG</span></div>
-  </div>
-  <p style="margin-top:10px">🎟️ Bono: <b>$100</b> • 100 números • Sorteo: 25 Nov 2026</p>
+<h1>RIFA $10,000<br><span style="font-size:18px">EN EFECTIVO • HUATABAMPO</span></h1>
+<p>Con tu bono participas por el premio mayor y 3 premios más. Sorteo con Lotería Nacional.</p>
+<div class="premio"><span>🏆 PREMIO MAYOR</span><b>$10,000 MXN</b><span style="font-size:12px">En efectivo • Se entrega el mismo día</span></div>
+<div class="countdown"><div><b id="cd-d">12</b><span>DÍAS</span></div><div><b id="cd-h">08</b><span>HORAS</span></div><div><b id="cd-m">45</b><span>MIN</span></div><div><b id="cd-s">30</b><span>SEG</span></div></div>
+<p style="margin-top:10px">🎟️ Bono: <b>$100</b> • 100 números • Sorteo: 25 Nov 2026</p>
 </div>
-
 <div class="tabs">
-  <button id="tab-comprar" class="activo" onclick="ver('comprar')">🎟️ COMPRAR</button>
-  <button id="tab-premios" onclick="ver('premios')">🏆 PREMIOS</button>
-  <button id="tab-admin" onclick="ver('admin')">👑 ADMIN</button>
+<button id="tab-comprar" class="activo" onclick="ver('comprar')">🎟️ COMPRAR</button>
+<button id="tab-premios" onclick="ver('premios')">🏆 PREMIOS</button>
+<button id="tab-admin" onclick="ver('admin')">👑 ADMIN</button>
 </div>
-
 <div id="sec-comprar" class="seccion activa">
-  <div class="box">
-    <div style="display:flex;justify-content:space-between"><h3>Elige tus números de la suerte</h3><span id="vendidosText" style="font-size:12px;color:#FFD700;font-weight:900">0 / 100 vendidos</span></div>
-    <div class="progreso"><div id="barra"></div></div>
-    <p style="font-size:12px;color:#aaa;margin-top:6px">🟡 = Tu número &nbsp; ⬛ = Vendido &nbsp; ⬜ = Disponible</p>
-    <div class="filtros">
-      <button class="activo" onclick="filtrar('todos',this)">Todos</button>
-      <button onclick="filtrar('disponibles',this)">Disponibles</button>
-      <button onclick="filtrar('mios',this)">Mis números</button>
-      <button onclick="elegirAleatorio()">🎲 Elige por mí</button>
-    </div>
-    <div class="grid" id="gridNumeros"></div>
-  </div>
-
-  <div class="box">
-    <h3>🧾 Tu Bono</h3>
-    <div id="listaSel" style="font-size:13px;margin-top:8px;color:#aaa">No has elegido número todavía, jefe.</div>
-    <div style="display:flex;justify-content:space-between;font-weight:900;margin-top:10px"><span>Total a pagar:</span><span id="total" style="color:#FFD700">$0</span></div>
-    <label>Tu nombre completo</label><input id="nombre" placeholder="Ej: Meza López">
-    <label>Tu WhatsApp</label><input id="whats" placeholder="Ej: 647 115 7123">
-    <label>Método de pago</label><select id="pago"><option>Transferencia / SPEI</option><option>Efectivo en Huatabampo</option><option>OXXO</option></select>
-    <button class="btn btn-oro" onclick="apartar()">🎟️ APARTAR MIS NÚMEROS</button>
-    <button class="btn btn-wa" onclick="pedirWA()">💬 APARTAR POR WHATSAPP - 647 115 7123</button>
-    <p style="font-size:11px;color:#777;text-align:center;margin-top:8px">Al apartar, te mandamos tu comprobante por WhatsApp. Tienes 2 horas para pagar o se libera tu número.</p>
-  </div>
-
-  <div class="box">
-    <h3>❓ ¿Cómo funciona Bonos Huatabampo?</h3>
-    <p style="font-size:13px;color:#bbb;line-height:1.7;margin-top:8px">
-    1. Eliges tu número de la suerte (00 al 99)<br>
-    2. Lo apartas por WhatsApp<br>
-    3. Pagas por transferencia o efectivo<br>
-    4. Te mandamos tu bono con tu nombre<br>
-    5. El día del sorteo, si sale tu número en Lotería Nacional, ¡ganas!
-    </p>
-  </div>
+<div class="box">
+<div style="display:flex;justify-content:space-between"><h3>Elige tus números</h3><span id="vendidosText" style="font-size:12px;color:#FFD700;font-weight:900">0 / 100 vendidos</span></div>
+<div class="progreso"><div id="barra"></div></div>
+<p style="font-size:12px;color:#aaa;margin-top:6px">🟡 = Tu número &nbsp; ⬛ = Vendido &nbsp; ⬜ = Disponible</p>
+<div class="filtros"><button class="activo" onclick="filtrar('todos',this)">Todos</button><button onclick="filtrar('disponibles',this)">Disponibles</button><button onclick="filtrar('mios',this)">Mis números</button><button onclick="elegirAleatorio()">🎲 Elige por mí</button></div>
+<div class="grid" id="gridNumeros"></div>
 </div>
-
+<div class="box">
+<h3>🧾 Tu Bono</h3>
+<div id="listaSel" style="font-size:13px;margin-top:8px;color:#aaa">No has elegido número todavía, jefe.</div>
+<div style="display:flex;justify-content:space-between;font-weight:900;margin-top:10px"><span>Total a pagar:</span><span id="total" style="color:#FFD700">$0</span></div>
+<label>Tu nombre completo</label><input id="nombre" placeholder="Ej: Meza López">
+<label>Tu WhatsApp</label><input id="whats" placeholder="Ej: 647 115 7123">
+<label>Método de pago</label><select id="pago"><option>Transferencia / SPEI</option><option>Efectivo en Huatabampo</option><option>OXXO</option></select>
+<button class="btn btn-oro" onclick="apartar()">🎟️ APARTAR MIS NÚMEROS</button>
+<button class="btn btn-wa" onclick="pedirWA()">💬 APARTAR POR WHATSAPP - 647 115 7123</button>
+<p style="font-size:11px;color:#777;text-align:center;margin-top:8px">Tienes 2 horas para pagar o se libera tu número.</p>
+</div>
+<div class="box"><h3>❓ ¿Cómo funciona?</h3><p style="font-size:13px;color:#bbb;line-height:1.7;margin-top:8px">1. Eliges tu número (00 al 99)<br>2. Lo apartas por WhatsApp<br>3. Pagas por transferencia o efectivo<br>4. Te mandamos tu bono<br>5. Si sale tu número en Lotería Nacional, ¡ganas!</p></div>
+</div>
 <div id="sec-premios" class="seccion">
-  <div class="premios">
-    <div class="premio-card"><div style="font-size:32px">🥇</div><b>1er Lugar</b><p>$10,000 efectivo</p></div>
-    <div class="premio-card"><div style="font-size:32px">🥈</div><b>2do Lugar</b><p>$2,000 efectivo</p></div>
-    <div class="premio-card"><div style="font-size:32px">🥉</div><b>3er Lugar</b><p>$1,000 efectivo</p></div>
-  </div>
-  <div class="box"><h3>🏆 Ganadores anteriores - Bonos Huatabampo</h3><div class="ganadores">
-    <div class="ganador"><span>🎉 <b>María G.</b> - Centro<br><small style="color:#aaa">Ganó $5,000 - Rifa Oct 2026</small></span><span class="badge verde">PAGADO</span></div>
-    <div class="ganador"><span>🎉 <b>Juan P.</b> - Beltrones<br><small style="color:#aaa">Ganó $3,000 - Rifa Sep 2026</small></span><span class="badge verde">PAGADO</span></div>
-    <div class="ganador"><span>🎉 <b>Lucy R.</b> - Las Palmas<br><small style="color:#aaa">Ganó $10,000 - Rifa Ago 2026</small></span><span class="badge verde">PAGADO</span></div>
-  </div></div>
-  <div class="box"><h3>📜 Reglas</h3><p style="font-size:12px;color:#aaa;line-height:1.7;margin-top:6px">• Sorteo con los 2 últimos dígitos de Lotería Nacional.<br>• Si no se venden todos los números, se sortea con los vendidos.<br>• El ganador tiene 7 días para reclamar.<br>• Se publica video del sorteo en Facebook Bonos Huatabampo.</p></div>
+<div class="premios"><div class="premio-card"><div style="font-size:32px">🥇</div><b>1er Lugar</b><p>$10,000 efectivo</p></div><div class="premio-card"><div style="font-size:32px">🥈</div><b>2do Lugar</b><p>$2,000 efectivo</p></div><div class="premio-card"><div style="font-size:32px">🥉</div><b>3er Lugar</b><p>$1,000 efectivo</p></div></div>
+<div class="box"><h3>🏆 Ganadores anteriores</h3><div class="ganador"><span>🎉 <b>María G.</b> - Centro<br><small style="color:#aaa">Ganó $5,000 - Oct 2026</small></span><span class="badge verde">PAGADO</span></div><div class="ganador"><span>🎉 <b>Juan P.</b> - Beltrones<br><small style="color:#aaa">Ganó $3,000 - Sep 2026</small></span><span class="badge verde">PAGADO</span></div><div class="ganador"><span>🎉 <b>Lucy R.</b> - Las Palmas<br><small style="color:#aaa">Ganó $10,000 - Ago 2026</small></span><span class="badge verde">PAGADO</span></div></div>
 </div>
-
 <div id="sec-admin" class="seccion">
-  <div class="box" id="loginAdmin"><h3>👑 Admin - Bonos Huatabampo</h3><div style="background:#333;padding:10px;border-radius:10px;text-align:center;margin-top:8px">Clave: <b>meza123</b></div><label>Clave</label><input id="claveAdmin" type="password" placeholder="meza123"><button class="btn btn-negro" onclick="entrarAdmin()">ENTRAR</button></div>
-  <div id="panelAdmin" style="display:none">
-    <div class="box"><h3>💰 Ventas</h3><p id="statVentas" style="font-size:22px;font-weight:900;color:#FFD700">$0</p><p id="statVendidos" style="font-size:12px;color:#aaa">0 números vendidos</p></div>
-    <div class="box"><h3>📋 Apartados</h3><div id="listaAdmin"></div><button class="btn btn-gris" onclick="liberarTodo()">🗑️ Liberar todos los números</button></div>
-    <div class="box"><h3>⚙️ Marcar número como vendido manualmente</h3><label>Número (00-99)</label><input id="numManual" placeholder="Ej: 07"><label>Nombre del comprador</label><input id="nombreManual" placeholder="Ej: Doña Mary"><button class="btn btn-oro" onclick="marcarVendido()">MARCAR VENDIDO</button></div>
-  </div>
+<div class="box" id="loginAdmin"><h3>👑 Admin - Bonos Huatabampo</h3><div style="background:#333;padding:10px;border-radius:10px;text-align:center;margin-top:8px">Clave: <b>meza123</b></div><label>Clave</label><input id="claveAdmin" type="password" placeholder="meza123"><button class="btn btn-negro" onclick="entrarAdmin()">ENTRAR</button></div>
+<div id="panelAdmin" style="display:none"><div class="box"><h3>💰 Ventas</h3><p id="statVentas" style="font-size:22px;font-weight:900;color:#FFD700">$0</p><p id="statVendidos" style="font-size:12px;color:#aaa">0 números vendidos</p></div><div class="box"><h3>📋 Apartados</h3><div id="listaAdmin"></div><button class="btn btn-gris" onclick="liberarTodo()">🗑️ Liberar todos</button></div><div class="box"><h3>⚙️ Marcar vendido manual</h3><label>Número (00-99)</label><input id="numManual" placeholder="Ej: 07"><label>Nombre</label><input id="nombreManual" placeholder="Ej: Doña Mary"><button class="btn btn-oro" onclick="marcarVendido()">MARCAR VENDIDO</button></div></div>
 </div>
-
 <footer>BONOS HUATABAMPO • Rifa de Meza • Huatabampo, Sonora<br>WhatsApp: 647 115 7123 • Facebook: Bonos Huatabampo<br>Tu suerte está en Huatabampo 🍀</footer>
 <a class="float" href="https://wa.me/526471157123?text=Hola%20Bonos%20Huatabampo%2C%20quiero%20un%20bono" target="_blank">💬</a>
-
 <script>
-let seleccionados = [];
-let vendidos = JSON.parse(localStorage.getItem('bonos_huatabampo_vendidos') || "[]");
-// Ejemplo: algunos ya vendidos para que se vea real
-if(vendidos.length===0){ vendidos = [{num:"07",nombre:"María G."},{num:"23",nombre:"Juan P."},{num:"45",nombre:"Lucy"}]; localStorage.setItem('bonos_huatabampo_vendidos', JSON.stringify(vendidos)); }
-let filtro = 'todos';
-function ver(s){
-  document.querySelectorAll('.seccion').forEach(x=>x.classList.remove('activa'));
-  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('activo'));
-  document.getElementById('sec-'+s).classList.add('activa');
-  document.getElementById('tab-'+(s==='comprar'?'comprar':s==='premios'?'premios':'admin')).classList.add('activo');
-  render();
-}
-function filtrar(f, btn){
-  filtro=f;
-  document.querySelectorAll('.filtros button').forEach(b=>b.classList.remove('activo'));
-  if(btn) btn.classList.add('activo');
-  render();
-}
-function render(){
-  let grid=document.getElementById('gridNumeros');
-  let html="";
-  for(let i=0;i<100;i++){
-    let num = i<10 ? "0"+i : ""+i;
-    let estaVendido = vendidos.find(v=>v.num===num);
-    let estaSel = seleccionados.includes(num);
-    if(filtro==='disponibles' && estaVendido) continue;
-    if(filtro==='mios' && !estaSel) continue;
-    let clase = estaVendido ? "numero vendido" : estaSel ? "numero sel" : "numero";
-    html+=`<div class="${clase}" onclick="toggleNum('${num}')">${num}<br><small style="font-size:9px;font-weight:400">${estaVendido?estaVendido.nombre:estaSel?'TUYO':'$100'}</small></div>`;
-  }
-  grid.innerHTML=html;
-  document.getElementById('vendidosText').innerText = vendidos.length + " / 100 vendidos";
-  document.getElementById('barra').style.width = vendidos.length + "%";
-  let lista=document.getElementById('listaSel');
-  if(seleccionados.length===0) lista.innerHTML="No has elegido número todavía, jefe.";
-  else lista.innerHTML = seleccionados.map(n=>`<span style="background:#FFD700;color:#111;padding:4px 10px;border-radius:100px;display:inline-block;margin:2px;font-weight:900">🎟️ ${n}</span>`).join(' ');
-  document.getElementById('total').innerText = "$" + (seleccionados.length*100);
-  // Admin
-  let htmlAdmin="";
-  if(vendidos.length===0) htmlAdmin="<p style='color:#aaa'>No hay vendidos.</p>";
-  vendidos.forEach(v=>{ htmlAdmin+=`<div class="ganador"><span><b>#${v.num}</b> - ${v.nombre}</span><span class="badge oro">$100</span></div>`; });
-  document.getElementById('listaAdmin').innerHTML=htmlAdmin;
-  document.getElementById('statVentas').innerText = "$" + (vendidos.length*100);
-  document.getElementById('statVendidos').innerText = vendidos.length + " números vendidos de 100";
-}
-function toggleNum(num){
-  let estaVendido = vendidos.find(v=>v.num===num);
-  if(estaVendido) return alert('Ese número ya está vendido, jefe. Elige otro.');
-  if(seleccionados.includes(num)) seleccionados = seleccionados.filter(n=>n!==num);
-  else seleccionados.push(num);
-  render();
-}
-function elegirAleatorio(){
-  let disponibles=[];
-  for(let i=0;i<100;i++){ let num=i<10?"0"+i:""+i; if(!vendidos.find(v=>v.num===num) && !seleccionados.includes(num)) disponibles.push(num); }
-  if(disponibles.length===0) return alert('Ya no hay números.');
-  let ale = disponibles[Math.floor(Math.random()*disponibles.length)];
-  seleccionados.push(ale); render();
-  document.getElementById('sec-comprar').scrollIntoView({behavior:'smooth'});
-}
-function apartar(){
-  let nombre=document.getElementById('nombre').value.trim();
-  let whats=document.getElementById('whats').value.trim();
-  if(seleccionados.length===0) return alert('Elige un número primero, jefe.');
-  if(!nombre) return alert('Pon tu nombre.');
-  if(!whats) return alert('Pon tu WhatsApp.');
-  seleccionados.forEach(num=>{ vendidos.push({num, nombre}); });
-  localStorage.setItem('bonos_huatabampo_vendidos', JSON.stringify(vendidos));
-  let nums = seleccionados.join(', ');
-  seleccionados=[];
-  render();
-  alert('¡Listo! Apartaste #' + nums + '. Mándanos mensaje por WhatsApp para confirmar tu pago. Tienes 2 horas.');
-  pedirWAConDatos(nombre, nums);
-}
-function pedirWAConDatos(nombre, nums){
-  let msg = `Hola Bonos Huatabampo, quiero apartar mis números: ${nums}\nNombre: ${nombre}\nTotal: $${nums.split(',').length*100}\nMétodo: ${document.getElementById('pago').value}`;
-  window.open('https://wa.me/526471157123?text='+encodeURIComponent(msg),'_blank');
-}
-function pedirWA(){
-  if(seleccionados.length===0) return alert('Elige un número primero.');
-  let nombre=document.getElementById('nombre').value.trim()||"";
-  pedirWAConDatos(nombre, seleccionados.join(', '));
-}
-function entrarAdmin(){
-  if(document.getElementById('claveAdmin').value==='meza123'){ document.getElementById('loginAdmin').style.display='none'; document.getElementById('panelAdmin').style.display='block'; render(); }
-  else alert('Clave incorrecta.');
-}
-function marcarVendido(){
-  let num=document.getElementById('numManual').value.trim().padStart(2,'0');
-  let nom=document.getElementById('nombreManual').value.trim()||"Vendido";
-  if(!num) return alert('Pon el número.');
-  if(vendidos.find(v=>v.num===num)) return alert('Ya está vendido.');
-  vendidos.push({num, nombre:nom});
-  localStorage.setItem('bonos_huatabampo_vendidos', JSON.stringify(vendidos));
-  render(); alert('Número #'+num+' marcado como vendido para '+nom);
-}
-function liberarTodo(){ if(confirm('¿Liberar todos?')){ vendidos=[]; localStorage.setItem('bonos_huatabampo_vendidos', JSON.stringify(vendidos)); render(); } }
-// Countdown simple
-let fin = new Date(); fin.setDate(fin.getDate()+12);
-setInterval(()=>{
-  let ahora=new Date(); let diff=fin-ahora;
-  if(diff<0) diff=0;
-  document.getElementById('cd-d').innerText=Math.floor(diff/86400000);
-  document.getElementById('cd-h').innerText=Math.floor(diff%86400000/3600000);
-  document.getElementById('cd-m').innerText=Math.floor(diff%3600000/60000);
-  document.getElementById('cd-s').innerText=Math.floor(diff%60000/1000);
-},1000);
+let seleccionados=[];
+let vendidos=JSON.parse(localStorage.getItem('bonos_huatabampo_vendidos')||"[]");
+if(vendidos.length===0){vendidos=[{num:"07",nombre:"María G."},{num:"23",nombre:"Juan P."},{num:"45",nombre:"Lucy"}];localStorage.setItem('bonos_huatabampo_vendidos',JSON.stringify(vendidos));}
+let filtro='todos';
+function ver(s){document.querySelectorAll('.seccion').forEach(x=>x.classList.remove('activa'));document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('activo'));document.getElementById('sec-'+s).classList.add('activa');document.getElementById('tab-'+(s==='comprar'?'comprar':s==='premios'?'premios':'admin')).classList.add('activo');render();}
+function filtrar(f,btn){filtro=f;document.querySelectorAll('.filtros button').forEach(b=>b.classList.remove('activo'));if(btn)btn.classList.add('activo');render();}
+function render(){let grid=document.getElementById('gridNumeros');let html="";for(let i=0;i<100;i++){let num=i<10?"0"+i:""+i;let estaVendido=vendidos.find(v=>v.num===num);let estaSel=seleccionados.includes(num);if(filtro==='disponibles'&&estaVendido)continue;if(filtro==='mios'&&!estaSel)continue;let clase=estaVendido?"numero vendido":estaSel?"numero sel":"numero";html+=`<div class="${clase}" onclick="toggleNum('${num}')">${num}<br><small style="font-size:9px;font-weight:400">${estaVendido?estaVendido.nombre:estaSel?'TUYO':'$100'}</small></div>`;}grid.innerHTML=html;document.getElementById('vendidosText').innerText=vendidos.length+" / 100 vendidos";document.getElementById('barra').style.width=vendidos.length+"%";let lista=document.getElementById('listaSel');if(seleccionados.length===0)lista.innerHTML="No has elegido número todavía, jefe.";else lista.innerHTML=seleccionados.map(n=>`<span style="background:#FFD700;color:#111;padding:4px 10px;border-radius:100px;display:inline-block;margin:2px;font-weight:900">🎟️ ${n}</span>`).join(' ');document.getElementById('total').innerText="$"+(seleccionados.length*100);let htmlAdmin="";if(vendidos.length===0)htmlAdmin="<p style='color:#aaa'>No hay vendidos.</p>";vendidos.forEach(v=>{htmlAdmin+=`<div class="ganador"><span><b>#${v.num}</b> - ${v.nombre}</span><span class="badge" style="background:#FFD700;color:#111">$100</span></div>`;});document.getElementById('listaAdmin').innerHTML=htmlAdmin;document.getElementById('statVentas').innerText="$"+(vendidos.length*100);document.getElementById('statVendidos').innerText=vendidos.length+" números vendidos de 100";}
+function toggleNum(num){let estaVendido=vendidos.find(v=>v.num===num);if(estaVendido)return alert('Ese número ya está vendido, jefe. Elige otro.');if(seleccionados.includes(num))seleccionados=seleccionados.filter(n=>n!==num);else seleccionados.push(num);render();}
+function elegirAleatorio(){let disponibles=[];for(let i=0;i<100;i++){let num=i<10?"0"+i:""+i;if(!vendidos.find(v=>v.num===num)&&!seleccionados.includes(num))disponibles.push(num);}if(disponibles.length===0)return alert('Ya no hay números.');let ale=disponibles[Math.floor(Math.random()*disponibles.length)];seleccionados.push(ale);render();}
+function apartar(){let nombre=document.getElementById('nombre').value.trim();let whats=document.getElementById('whats').value.trim();if(seleccionados.length===0)return alert('Elige un número primero, jefe.');if(!nombre)return alert('Pon tu nombre.');if(!whats)return alert('Pon tu WhatsApp.');seleccionados.forEach(num=>{vendidos.push({num,nombre});});localStorage.setItem('bonos_huatabampo_vendidos',JSON.stringify(vendidos));let nums=seleccionados.join(', ');seleccionados=[];render();alert('¡Listo! Apartaste #'+nums+'. Mándanos mensaje por WhatsApp para confirmar tu pago.');pedirWAConDatos(nombre,nums);}
+function pedirWAConDatos(nombre,nums){let msg=`Hola Bonos Huatabampo, quiero apartar mis números: ${nums}\nNombre: ${nombre}\nTotal: $${nums.split(',').length*100}\nMétodo: ${document.getElementById('pago').value}`;window.open('https://wa.me/526471157123?text='+encodeURIComponent(msg),'_blank');}
+function pedirWA(){if(seleccionados.length===0)return alert('Elige un número primero.');let nombre=document.getElementById('nombre').value.trim()||"";pedirWAConDatos(nombre,seleccionados.join(', '));}
+function entrarAdmin(){if(document.getElementById('claveAdmin').value==='meza123'){document.getElementById('loginAdmin').style.display='none';document.getElementById('panelAdmin').style.display='block';render();}else alert('Clave incorrecta.');}
+function marcarVendido(){let num=document.getElementById('numManual').value.trim().padStart(2,'0');let nom=document.getElementById('nombreManual').value.trim()||"Vendido";if(!num)return alert('Pon el número.');if(vendidos.find(v=>v.num===num))return alert('Ya está vendido.');vendidos.push({num,nombre:nom});localStorage.setItem('bonos_huatabampo_vendidos',JSON.stringify(vendidos));render();alert('Número #'+num+' marcado como vendido para '+nom);}
+function liberarTodo(){if(confirm('¿Liberar todos?')){vendidos=[];localStorage.setItem('bonos_huatabampo_vendidos',JSON.stringify(vendidos));render();}}
+let fin=new Date();fin.setDate(fin.getDate()+12);setInterval(()=>{let ahora=new Date();let diff=fin-ahora;if(diff<0)diff=0;document.getElementById('cd-d').innerText=Math.floor(diff/86400000);document.getElementById('cd-h').innerText=Math.floor(diff%86400000/3600000);document.getElementById('cd-m').innerText=Math.floor(diff%3600000/60000);document.getElementById('cd-s').innerText=Math.floor(diff%60000/1000);},1000);
 render();
 </script>
 </body>
